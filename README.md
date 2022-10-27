@@ -1,6 +1,8 @@
 # Flutter docset generator script
 
-This is a slightly modified standard Flutter repo with a [build.sh](./build.sh) bash script that generates [docset](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/Documentation_Sets/010-Overview_of_Documentation_Sets/docset_overview.html#//apple_ref/doc/uid/TP40005266-CH13-SW6) documentation for the Flutter app.
+This is a slightly modified standard Flutter app with a [build.sh](./build.sh) bash script that generates [docset](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/Documentation_Sets/010-Overview_of_Documentation_Sets/docset_overview.html#//apple_ref/doc/uid/TP40005266-CH13-SW6) documentation for the Flutter app.
+
+You can copy over [build.sh](./build.sh) for your own Flutter project.
 
 Docset is used by [Dash](https://kapeli.com/dash) and [Zeal](https://zealdocs.org) among others.
 
