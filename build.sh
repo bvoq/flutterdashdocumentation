@@ -1,31 +1,18 @@
 #!/bin/sh
 
-# This script additionally needs:
+# This script additionally to flutter/dart needs:
 # brew install dashing jq yq
-# [Optional]
-# For image resizing:
+# [Optional] For image resizing:
 # pip3 install Pillow
-# Install instructions for flutter-stylizer:
-# brew install go
-# Add the following 3 lines to your .zshrc (or .bashrc if you're using bash)
-#
-# export GOPATH=${HOME}/go
-# PATH=${PATH}:${HOME}/go/bin
-# mkdir -p ${HOME}/go/bin
-#
-# Finally, install using: go get -u github.com/gmlewis/go-flutter-stylizer/cmd/flutter-stylizer
 
 # Install/Update plugins
 flutter pub get
 
-# [Essential] Run code generation
-flutter pub run build_runner build --delete-conflicting-outputs
+# If your project uses code generation:
+# flutter pub run build_runner build --delete-conflicting-outputs
 
 # Format the code, should be done on saving by IDE.
 flutter format .
-
-# [Optional] Stylize flutter if installed: https://github.com/gmlewis/go-flutter-stylizer
-flutter-stylizer lib/...
 
 # Run tests
 flutter test
@@ -149,7 +136,6 @@ cd ..
 # [OPTIONAL] Set the docset language to dartlang.
 cat > preprocessing.dart <<- EOM
 import 'dart:io';
-import 'package:args/args.dart';
 
 /// This changes the DocSetPlatformFamily key to be "dartlang" instead of the
 /// name of the package (usually "flutter").
@@ -177,7 +163,7 @@ void main(List<String> args) {
 }
 EOM
 
-dart preprocessing.dart "$FLUTTERNAME.docset"
+dart run preprocessing.dart "$FLUTTERNAME.docset"
 
 cd ..
 
@@ -185,4 +171,3 @@ cd ..
 rm resize.py
 rm doc/preprocessing.dart
 rm doc/api/dashing.json
-

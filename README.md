@@ -1,23 +1,17 @@
-# Flutter app docset generation
+# Flutter docset generator script
 
-This is a slightly modified standard Flutter repo with a build.sh tool that generates a Dash compatible .docset documentation for the flutter app.
+This is a slightly modified standard Flutter repo with a [build.sh](./build.sh) tool that generates [docset](https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/Documentation_Sets/010-Overview_of_Documentation_Sets/docset_overview.html#//apple_ref/doc/uid/TP40005266-CH13-SW6) documentation for the Flutter app.
 
-Check out [build.sh] for more details.
+Docset is used by [Dash](https://kapeli.com/dash) and [Zeal](https://zealdocs.org) among others.
 
-# Install requirements
+# Install requirements / dependencies
+This script uses [dashing](https://github.com/technosophos/dashing), [jq](https://stedolan.github.io/jq) and [yq](https://github.com/mikefarah/yq).
+Optionally, python3 is needed with the [Pillow](https://pypi.org/project/Pillow/) package for resizing the image based on the iOS AppIcon of the current app.
+
+You can install them using:
 ```
 brew install dashing jq yq
+# Optional for image resizing:
+brew install python3
 pip3 install Pillow
 ```
-
-# Install instructions for optional flutter-stylizer:
-
-```brew install go```
-Add the following 3 lines to your .zshrc (or .bashrc if you're using bash)
-```
-export GOPATH=${HOME}/go
-PATH=${PATH}:${HOME}/go/bin
-mkdir -p ${HOME}/go/bin
-```
-Finally, install using:
-`go get -u github.com/gmlewis/go-flutter-stylizer/cmd/flutter-stylizer`
