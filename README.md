@@ -1,16 +1,23 @@
-# flutterdashdocumentation
+# Flutter app docset generation
 
-A new Flutter project.
+This is a slightly modified standard Flutter repo with a build.sh tool that generates a Dash compatible .docset documentation for the flutter app.
 
-## Getting Started
+Check out [build.sh] for more details.
 
-This project is a starting point for a Flutter application.
+# Install requirements
+```
+brew install dashing jq yq
+pip3 install Pillow
+```
 
-A few resources to get you started if this is your first Flutter project:
+# Install instructions for optional flutter-stylizer:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```brew install go```
+Add the following 3 lines to your .zshrc (or .bashrc if you're using bash)
+```
+export GOPATH=${HOME}/go
+PATH=${PATH}:${HOME}/go/bin
+mkdir -p ${HOME}/go/bin
+```
+Finally, install using:
+`go get -u github.com/gmlewis/go-flutter-stylizer/cmd/flutter-stylizer`
